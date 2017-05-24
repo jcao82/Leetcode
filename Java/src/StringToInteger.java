@@ -24,27 +24,27 @@ public class StringToInteger {
 	public static int checkInteger(String str) {
 		StringBuilder str1 = new StringBuilder();
 		char[] cArr = str.toCharArray();
-		boolean negative = true;
+		boolean negative = false;
 		for (int i = 0; i < cArr.length; i++) {
 			if (cArr[i] == ' ') {
 				continue;
 			}
-			if(cArr[i]=='+'){
-				negative = false;
+			if(cArr[i]=='-'){
+				negative = true;
 				continue;
 			}
 //			if((!Character.isDigit(cArr[i]))){
 //				continue;
-			//如果string有非整数
 //			}
 			str1.append(cArr[i]);
 		}
 		int x = Integer.valueOf(str1.toString());
+		System.out.println(negative);
 		return negative?-x:x;
 	}
 
 	public static void main(String[] args) {
-		System.out.println(checkInteger("  -23433  23213  "));
-		
+		int x = checkInteger("  -0230232");
+		System.out.println(x);
 	}
 }
