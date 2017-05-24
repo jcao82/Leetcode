@@ -21,22 +21,30 @@ public class StringToInteger {
 	 * ，所以笔者采用length长度做初步判断。
 	 */
 
-	public static void checkInteger(String num) {
-		char[] charArr = num.toCharArray();
-		char[] charNew = new char[charArr.length];
-		for (int i = 0; i < charArr.length; i++) {
-			if (!(charArr[i] == ' ')) {
-				charNew[i] = charArr[i];
+	public static int checkInteger(String str) {
+		StringBuilder str1 = new StringBuilder();
+		char[] cArr = str.toCharArray();
+		boolean negative = true;
+		for (int i = 0; i < cArr.length; i++) {
+			if (cArr[i] == ' ') {
+				continue;
 			}
-
+			if(cArr[i]=='+'){
+				negative = false;
+				continue;
+			}
+//			if((!Character.isDigit(cArr[i]))){
+//				continue;
+			//如果string有非整数
+//			}
+			str1.append(cArr[i]);
 		}
-		System.out.println();
-
+		int x = Integer.valueOf(str1.toString());
+		return negative?-x:x;
 	}
 
 	public static void main(String[] args) {
-		checkInteger(" + 023023 2");
+		System.out.println(checkInteger("  -23433  23213  "));
 		
 	}
-
 }
