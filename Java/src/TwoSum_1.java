@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class TwoSum_1 {
 
 	/***
@@ -16,21 +18,25 @@ public class TwoSum_1 {
 	 */
 
 	public static void getIndices1(int[] arry, int target) {
-
+        HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
 		for (int i = 0; i < arry.length; i++) {
 			int num = target - arry[i];
 
 			for (int j = 0; j < arry.length; j++) {
 				if (num == arry[j] && (num+arry[i]==target)) {
-					System.out.println(i + ", " + j);
+					map.put(i,j);
 				}
 			}
 		}
-
+			if(!map.isEmpty()){
+				System.out.println(map);
+			}else{
+				System.out.println("The target is not in the list.");
+			}
 	}
 
 	public static void main(String[] args) {
 		int nums[] = {2, 21, 11, 7};
-		getIndices1(nums,18);
+		getIndices1(nums,32);
 	}
 }
