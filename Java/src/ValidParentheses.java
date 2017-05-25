@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class ValidParentheses {
 	/**
 	 * Given a string containing just the characters '(', ')', '{', '}', '[' and
@@ -10,8 +12,29 @@ public class ValidParentheses {
 	 * 。这里不用担心连续不同种类左括号的问题，因为有效的括号对最终还是会有紧邻的括号对。如栈中是({[，来一个]变成({，再来一个}，变成(。
 	 */
 
-	public static boolean solution(String str) {
+	public static void solution(String str) {
 
-		return false;
+		char[] arr = str.toCharArray();
+		Stack<Character> stack = new Stack<>();
+		for (int i = 0; i < arr.length; i++) {
+			if ((arr[i] == '(') || (arr[i] == '[') || (arr[i] == '{')) {
+				stack.push(arr[i]);
+			}
+		}
+		for (int i = arr.length - 1; i >= 0; i--) {
+			
+		}
+
+//		stack.pop();
+		System.out.println(stack);
 	}
+
+	public static void main(String[] args) {
+		String str = "()[]{}";
+		String str1 = "([)]";
+		String str2 = "([{}])]";
+
+		solution(str2);
+	}
+
 }
